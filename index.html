@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richard Raj - Civil Engineering Portfolio</title>
+    <style>
+        /* CSS Variables for a "Civil Engineering" Theme */
+        :root {
+            --primary-color: #1A365D; /* Steel Blue */
+            --secondary-color: #4A5568; /* Concrete Gray */
+            --accent-color: #DD6B20; /* Safety Orange */
+            --bg-color: #F7FAFC; /* Light Gray Background */
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            color: var(--white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 10% 4rem;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        /* 1. About Section */
+        #about {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background-color: var(--white);
+            margin-top: 3rem;
+        }
+
+        .profile-pic {
+            width: 350px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 8px 8px 0px var(--accent-color); /* Blueprint style shadow */
+        }
+
+        .about-text h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-text .degree {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: var(--bg-color);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* 2. Projects Section */
+        .project-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        /* 3. Exposures Section */
+        .exposure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .exposure-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+        }
+
+        /* 4. Skills Section */
+        .skills-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* 5. Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .gallery-category {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #about {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: left;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects & Research</a></li>
+            <li><a href="#exposures">Exposures</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. ABOUT -->
+    <section id="about">
+        <img src="Pic/richard pfp.jpg" alt="Richard Raj" class="profile-pic">
+        <div class="about-text">
+            <h1>Richard Raj A/L Subramaniam</h1>
+            <p class="degree">Bachelor of Civil Engineering with Honours | UTHM</p>
+            <p><strong>Expected Graduation:</strong> 2028 | <strong>CGPA:</strong> 3.35</p>
+            <br>
+            <p>Dynamic Civil Engineering undergraduate at UTHM with a strong foundation in computational structural modeling, data-driven site analysis, and geomatics. Passionate about the intersection of physical infrastructure and advanced digital technologies, I am applying to the Winter University programme to bridge my engineering background with advanced computational fields—specifically systems development, neural networks, and computer science (Turing track). My goal is to leverage these interdisciplinary tech skills to develop smarter, tech-integrated engineering solutions and collaborate in a multicultural academic environment.</p>
+            
+            <div class="contact-info">
+                <p>📧 <strong>Email:</strong> AF240047@student.uthm.edu.my</p>
+                <p>📞 <strong>Phone:</strong> 011-2379 3060</p>
+                <p>🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/richard-raj-7b7389444" target="_blank">View Profile</a></p>
+                <p>📷 <strong>Instagram:</strong> @chard_2407</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PROJECTS & RESEARCH -->
+    <section id="projects">
+        <h2>Projects & Research</h2>
+        
+        <div class="project-card">
+            <h3>Structural Load Analysis & 3D Tower Modeling</h3>
+            <p><strong>Summary:</strong> Engineered a comprehensive 3D tower model and executed complex structural load analyses utilizing STAAD.Pro to validate structural integrity and safety parameters.</p>
+            <p><strong>My Contribution:</strong> Systematically resolved intricate input configuration errors to optimize model accuracy and synthesized post-processing force diagrams.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Geological Field Investigation & Site Characterization (Mersing, Johor)</h3>
+            <p><strong>Summary:</strong> Conducted an intensive 3-day, 2-night geological field expedition executing on-site testing, rock and soil sampling, and structural mapping.</p>
+            <p><strong>My Contribution:</strong> Analyzed empirical field data to characterize rock formations and soil mechanics, ultimately synthesizing findings to assess site stability and geotechnical viability.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Topographic Mapping & Geomatic Surveying (Asahan, Melaka)</h3>
+            <p><strong>Summary:</strong> Executed real-world geomatic and topographic surveying protocols during an intensive field camp using precision field equipment.</p>
+            <p><strong>My Contribution:</strong> Spearheaded field data collection, synthesized mapping outputs using SDR Mapping & Design V6.5, and directed the drafting of official presentation materials.</p>
+        </div>
+    </section>
+
+    <!-- 3. EXPOSURES -->
+    <section id="exposures">
+        <h2>Exposures</h2>
+        <div class="exposure-grid">
+            <div class="exposure-item">
+                <h3>🌍 Global Mindset & Multilingual Adaptability</h3>
+                <p>Fluent in English, Chinese, Bahasa Malaysia, and Tamil, enabling seamless communication and collaboration in diverse, multicultural environments.</p>
+            </div>
+            <div class="exposure-item">
+                <h3>🌱 Sustainability Advocacy</h3>
+                <p>Designed compelling presentation materials and strategic messaging aligned with the 17 UN Sustainable Development Goals (SDGs) for an English for Professional Communication course.</p>
+            </div>
+            <div class="exposure-item">
+                <h3>🎬 Multimedia Production</h3>
+                <p>Directed scriptwriting and video editing for the "English for General Communication" course at UTHM, and serve as a freelance video editor utilizing DaVinci Resolve.</p>
+            </div>
+            <div class="exposure-item">
+                <h3>📦 Operational Resilience</h3>
+                <p>Navigated mentally and physically demanding logistical operations as a high-volume delivery driver for ShopeeExpress (SPX) and Lalamove, successfully balancing rigorous targets with demanding academic studies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SKILLS -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Engineering & Mapping Software</h3>
+                <div class="skill-tags">
+                    <span class="tag">STAAD.Pro</span>
+                    <span class="tag">AutoCAD</span>
+                    <span class="tag">SDR Mapping & Design V6.5</span>
+                    <span class="tag">Jupyter Notebook</span>
+                    <span class="tag">Google Earth Pro</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Language Proficiency</h3>
+                <div class="skill-tags">
+                    <span class="tag">English (Fluent)</span>
+                    <span class="tag">Chinese (Fluent)</span>
+                    <span class="tag">Bahasa Malaysia (Fluent)</span>
+                    <span class="tag">Tamil (Native)</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Multimedia Software</h3>
+                <div class="skill-tags">
+                    <span class="tag">DaVinci Resolve</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. GALLERY -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+
+        <h3 class="gallery-category">Structural Load Analysis & Tower Modeling</h3>
+        <div class="gallery-grid">
+            <img src="Pic/tower.jpeg" alt="Tower Design Graphic" class="gallery-item">
+            <img src="Pic/Sa1.jpeg" alt="Tower Physical Model 1" class="gallery-item">
+            <img src="Pic/Sa2.jpeg" alt="Tower Physical Model 2" class="gallery-item">
+        </div>
+
+        <h3 class="gallery-category">Geomatic Surveying (Asahan)</h3>
+        <div class="gallery-grid">
+            <img src="Pic/survey.jpeg" alt="Survey Team" class="gallery-item">
+            <img src="Pic/survey 1.jpeg" alt="Surveying Equipment" class="gallery-item">
+            <img src="Pic/survey 2.jpeg" alt="Surveying Equipment Fieldwork" class="gallery-item">
+            <img src="Pic/survey 3.jpeg" alt="Survey Data Review" class="gallery-item">
+        </div>
+
+        <h3 class="gallery-category">Geological Field Investigation (Mersing)</h3>
+        <div class="gallery-grid">
+            <img src="Pic/geology.jpeg" alt="Geology Material Testing" class="gallery-item">
+            <img src="Pic/geo 1.jpeg" alt="Geology Fieldwork 1" class="gallery-item">
+            <img src="Pic/geo 2.jpeg" alt="Geology Fieldwork 2" class="gallery-item">
+            <img src="Pic/geo 3.jpeg" alt="Geology Rock Formation" class="gallery-item">
+            <img src="Pic/geo 4.jpeg" alt="Geology Rock Hammer" class="gallery-item">
+            <img src="Pic/geo 5.jpeg" alt="Geology Soil Sample" class="gallery-item">
+            <img src="Pic/geo 6.jpeg" alt="Geology Rock Structure" class="gallery-item">
+        </div>
+    </section>
+
+</body>
+</html>
