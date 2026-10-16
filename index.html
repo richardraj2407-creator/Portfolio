@@ -1,354 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richard Raj - Civil Engineering Portfolio</title>
-    <style>
-        /* CSS Variables for a "Civil Engineering" Theme */
-        :root {
-            --primary-color: #1A365D; /* Steel Blue */
-            --secondary-color: #4A5568; /* Concrete Gray */
-            --accent-color: #DD6B20; /* Safety Orange */
-            --bg-color: #F7FAFC; /* Light Gray Background */
-            --white: #FFFFFF;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Richard Raj A/L Subramaniam — Civil Engineering portfolio in structural modelling, geomatics, geology, and digital engineering.">
+  <title>Richard Raj — Future Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #07111f;
+      --navy-2: #0c1c30;
+      --navy-3: #122943;
+      --cyan: #55e6e0;
+      --blue: #4e8dff;
+      --violet: #a28bff;
+      --orange: #ff914d;
+      --paper: #f4f7fb;
+      --white: #fff;
+      --ink: #17283d;
+      --muted: #697b91;
+      --line: #dce5ef;
+      --shadow: 0 18px 55px rgba(16, 38, 65, .10);
+      --sans: "Manrope", "Segoe UI", sans-serif;
+      --mono: "DM Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.7; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    ::selection { background: var(--cyan); color: var(--navy); }
+    .container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
-        }
+    /* Navigation */
+    .site-header { position: fixed; inset: 0 0 auto; z-index: 1000; background: rgba(7,17,31,.88); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,.09); }
+    .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: #fff; text-decoration: none; font-weight: 800; letter-spacing: -.04em; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(85,230,224,.7); color: var(--cyan); font: 500 12px var(--mono); box-shadow: inset 0 0 18px rgba(85,230,224,.08); }
+    .brand small { display: block; color: #91a5bb; font: 9px var(--mono); letter-spacing: .15em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: clamp(13px, 2vw, 27px); list-style: none; }
+    .nav-links a { color: #d2ddeb; text-decoration: none; font-size: 10px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; transition: color .2s; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--cyan); }
+    .nav-links .nav-contact { border: 1px solid rgba(85,230,224,.55); color: var(--cyan); padding: 10px 13px; }
+    .menu-toggle { display: none; background: none; border: 1px solid #40536a; color: white; padding: 8px 11px; font: 12px var(--mono); cursor: pointer; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--secondary-color);
-            line-height: 1.6;
-        }
+    /* Hero */
+    .hero { position: relative; min-height: 760px; min-height: 100svh; overflow: hidden; display: flex; align-items: center; padding: 140px 0 82px; color: #fff; background: radial-gradient(ellipse at 77% 35%, rgba(42,108,171,.3), transparent 34%), radial-gradient(ellipse at 52% 100%, rgba(64,65,160,.16), transparent 43%), linear-gradient(135deg, #06101d 0%, #0a1b30 57%, #102740 100%); }
+    .hero-grid { position: absolute; inset: 0; opacity: .19; background-image: linear-gradient(rgba(85,230,224,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(85,230,224,.2) 1px, transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(100deg, #000 0%, transparent 85%); pointer-events: none; }
+    .hero-orbit { position: absolute; width: 570px; height: 570px; border: 1px solid rgba(85,230,224,.19); border-radius: 50%; right: -110px; top: 14%; box-shadow: 0 0 0 48px rgba(85,230,224,.025), 0 0 0 100px rgba(85,230,224,.018); }
+    .hero-orbit::before, .hero-orbit::after { content: ""; position: absolute; border: 1px solid rgba(162,139,255,.2); border-radius: 50%; inset: 72px; }
+    .hero-orbit::after { inset: 145px; border-color: rgba(85,230,224,.22); }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.2fr) minmax(270px,.8fr); gap: 64px; align-items: center; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; color: var(--cyan); font: 11px var(--mono); letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--orange); }
+    .hero h1 { font-size: clamp(3.4rem, 7vw, 6.6rem); line-height: .98; letter-spacing: -.075em; font-weight: 800; }
+    .hero h1 span { display: block; color: var(--cyan); }
+    .hero-lead { max-width: 670px; margin-top: 26px; color: #c6d4e4; font-size: clamp(1rem, 1.5vw, 1.12rem); }
+    .hero-lead strong { color: white; font-weight: 700; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; padding: 13px 18px; text-decoration: none; font-size: 12px; font-weight: 800; letter-spacing: .03em; border: 1px solid transparent; transition: transform .2s, background .2s, border-color .2s; }
+    .button:hover { transform: translateY(-3px); }
+    .button-primary { background: var(--cyan); color: var(--navy); }
+    .button-primary:hover { background: #a2fffa; }
+    .button-ghost { border-color: rgba(220,235,248,.3); color: white; }
+    .button-ghost:hover { border-color: var(--cyan); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 36px; color: #a6b8cb; font: 10px var(--mono); text-transform: uppercase; letter-spacing: .09em; }
+    .hero-meta span::before { content: "↗"; color: var(--orange); margin-right: 8px; }
+    .tech-panel { position: relative; padding: 23px; border: 1px solid rgba(155,199,232,.22); background: linear-gradient(145deg, rgba(19,43,68,.83), rgba(8,22,39,.82)); box-shadow: 0 28px 80px rgba(0,0,0,.24); backdrop-filter: blur(10px); }
+    .panel-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-bottom: 17px; border-bottom: 1px solid rgba(255,255,255,.11); color: #a6b8cb; font: 10px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+    .live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); margin-right: 7px; box-shadow: 0 0 12px rgba(85,230,224,.8); }
+    .blueprint { position: relative; min-height: 250px; margin: 20px 0; overflow: hidden; border: 1px solid rgba(85,230,224,.17); background-image: linear-gradient(rgba(85,230,224,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(85,230,224,.08) 1px, transparent 1px); background-size: 22px 22px; display: grid; place-items: center; }
+    .blueprint svg { width: 100%; max-width: 330px; height: auto; }
+    .panel-data { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .data-cell { padding: 12px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.07); }
+    .data-cell b { display: block; color: white; font-size: 16px; letter-spacing: -.03em; }
+    .data-cell span { display: block; color: #9aafc4; font: 9px var(--mono); text-transform: uppercase; letter-spacing: .08em; margin-top: 3px; }
+    .scroll-note { position: absolute; bottom: 28px; left: max(24px, calc((100vw - 1160px)/2)); color: #7890a9; font: 9px var(--mono); letter-spacing: .18em; text-transform: uppercase; writing-mode: vertical-rl; }
+    .scroll-note::after { content: ""; display: inline-block; width: 1px; height: 38px; background: var(--cyan); margin-top: 12px; }
 
-        /* Navigation */
-        nav {
-            background-color: var(--primary-color);
-            color: var(--white);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+    /* Shared content */
+    main section.content-section { padding: 104px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 42px; }
+    .section-kicker { color: #078f9a; font: 10px var(--mono); letter-spacing: .17em; text-transform: uppercase; margin-bottom: 10px; }
+    .section-head h2 { color: var(--navy); font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; letter-spacing: -.06em; }
+    .section-head p { max-width: 430px; color: var(--muted); font-size: 13px; }
+    .section-number { color: #a6b3c1; font: 12px var(--mono); white-space: nowrap; }
+    .about-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
+    .profile-frame { position: relative; max-width: 390px; padding: 12px; background: white; border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .profile-frame::before { content: "PROFILE / 001"; position: absolute; z-index: 1; top: -12px; left: 20px; padding: 4px 8px; background: var(--cyan); color: var(--navy); font: 9px var(--mono); letter-spacing: .1em; }
+    .profile-pic { width: 100%; aspect-ratio: 4 / 4.5; object-fit: cover; background: #dce5ef; }
+    .profile-caption { display: flex; justify-content: space-between; gap: 10px; padding: 13px 3px 2px; color: var(--muted); font: 9px var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+    .about-copy h3 { font-size: 1.5rem; color: var(--navy); letter-spacing: -.04em; margin-bottom: 14px; }
+    .about-copy p { color: #53657a; font-size: 14px; margin-bottom: 15px; }
+    .degree-line { color: var(--navy) !important; font-weight: 800; }
+    .fact-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 25px 0; }
+    .fact { border-left: 2px solid var(--cyan); background: white; padding: 12px 14px; }
+    .fact b { display: block; color: var(--navy); font-size: 18px; letter-spacing: -.04em; }
+    .fact span { display: block; color: var(--muted); font: 9px var(--mono); text-transform: uppercase; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+    .contact-item { min-width: 0; background: white; border: 1px solid var(--line); padding: 13px 14px; }
+    .contact-item span { display: block; color: var(--muted); font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .contact-item a, .contact-item strong { display: block; margin-top: 4px; color: var(--navy); font-size: 12px; font-weight: 700; overflow-wrap: anywhere; text-decoration: none; }
+    .contact-item a:hover { color: #078f9a; }
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 1rem;
-        }
+    /* Projects */
+    #projects { background: #fff; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { position: relative; min-height: 335px; padding: 25px; overflow: hidden; background: #f7f9fc; border: 1px solid var(--line); transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: #9adfdf; }
+    .project-card::after { content: attr(data-index); position: absolute; right: 14px; top: -19px; color: rgba(16,43,70,.055); font: 700 100px var(--sans); line-height: 1; pointer-events: none; }
+    .project-icon { width: 43px; height: 43px; display: grid; place-items: center; margin-bottom: 25px; border: 1px solid #cde5e9; background: #e8fafa; color: #087e8a; font-size: 20px; }
+    .project-type { color: #078f9a; font: 9px var(--mono); letter-spacing: .13em; text-transform: uppercase; margin-bottom: 9px; }
+    .project-card h3 { color: var(--navy); font-size: 18px; line-height: 1.35; letter-spacing: -.035em; margin-bottom: 12px; }
+    .project-card p { color: #607187; font-size: 12px; margin-bottom: 11px; }
+    .project-card p strong { color: #263d56; }
+    .project-footer { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 19px; }
+    .mini-tag { padding: 5px 8px; border: 1px solid #dce5ef; color: #5d7085; background: white; font: 9px var(--mono); }
 
-        nav ul li {
-            margin: 0 1.5rem;
-        }
+    /* Exposure */
+    .exposure-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .exposure-item { display: grid; grid-template-columns: 46px 1fr; gap: 17px; padding: 24px; background: white; border: 1px solid var(--line); transition: border-color .2s, transform .2s; }
+    .exposure-item:hover { border-color: #9adfdf; transform: translateY(-3px); }
+    .exposure-icon { width: 44px; height: 44px; display: grid; place-items: center; color: #087e8a; background: #e7fafa; border: 1px solid #cde8e9; font-size: 20px; }
+    .exposure-item h3 { color: var(--navy); font-size: 15px; letter-spacing: -.025em; margin-bottom: 7px; }
+    .exposure-item p { color: #65758a; font-size: 12px; }
 
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
+    /* Skills */
+    #skills { background: #eaf0f6; }
+    .skills-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; align-items: start; }
+    .skills-intro { padding: 28px; background: var(--navy); color: white; position: relative; overflow: hidden; }
+    .skills-intro::after { content: "</>"; position: absolute; right: -4px; bottom: -30px; color: rgba(85,230,224,.1); font: 700 110px var(--mono); }
+    .skills-intro h3 { color: white; font-size: 23px; line-height: 1.2; letter-spacing: -.05em; margin-bottom: 12px; }
+    .skills-intro p { position: relative; z-index: 1; color: #b3c3d4; font-size: 12px; }
+    .skill-groups { display: grid; gap: 13px; }
+    .skill-category { padding: 20px 22px; background: white; border: 1px solid #dce5ef; }
+    .skill-category h3 { color: var(--navy); font-size: 12px; margin-bottom: 13px; letter-spacing: .02em; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: 7px 10px; color: #2e4b67; background: #f1f6fa; border: 1px solid #dce7ef; font-size: 10px; font-weight: 700; }
+    .tag:hover { color: var(--navy); background: #ddfbf8; border-color: #8ddedb; }
 
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
+    /* Gallery */
+    .gallery-group { margin-top: 35px; }
+    .gallery-group:first-of-type { margin-top: 0; }
+    .gallery-title { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 14px; color: var(--navy); font-size: 15px; }
+    .gallery-title span { color: var(--muted); font: 10px var(--mono); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .gallery-item { width: 100%; height: 225px; object-fit: cover; background: #dce5ef; border: 1px solid var(--line); transition: transform .25s, box-shadow .25s; }
+    .gallery-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .gallery-grid .gallery-item:first-child { grid-column: span 2; }
+    .gallery-grid .gallery-item:first-child { height: 280px; }
 
-        /* Sections */
-        section {
-            padding: 6rem 10% 4rem;
-            min-height: 100vh;
-        }
+    /* Footer */
+    .footer { padding: 40px 0; background: var(--navy); color: #a8b9cb; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer strong { color: white; }
+    .footer p { font-size: 11px; }
+    .back-top { color: var(--cyan); text-decoration: none; font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 
-        h1, h2, h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            border-bottom: 3px solid var(--accent-color);
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-
-        /* 1. About Section */
-        #about {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            background-color: var(--white);
-            margin-top: 3rem;
-        }
-
-        .profile-pic {
-            width: 350px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 8px 8px 0px var(--accent-color); /* Blueprint style shadow */
-        }
-
-        .about-text h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .about-text .degree {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .contact-info {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: var(--bg-color);
-            border-left: 4px solid var(--primary-color);
-        }
-
-        /* 2. Projects Section */
-        .project-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-color);
-        }
-
-        /* 3. Exposures Section */
-        .exposure-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .exposure-item {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #E2E8F0;
-        }
-
-        /* 4. Skills Section */
-        .skills-container {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-        }
-
-        .skill-category {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* 5. Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 4px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-
-        .gallery-category {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            #about {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-info {
-                text-align: left;
-            }
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-        }
-    </style>
+    @media (max-width: 980px) {
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 9px; }
+      .hero-inner { gap: 35px; }
+      .hero h1 { font-size: clamp(3.2rem, 7vw, 5.3rem); }
+      .project-grid { grid-template-columns: repeat(2,1fr); }
+      .project-card:last-child { grid-column: span 2; min-height: auto; }
+      .gallery-grid { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 36px, 560px); }
+      .nav-wrap { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 24px 22px; background: rgba(7,17,31,.98); border-bottom: 1px solid rgba(255,255,255,.1); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links li a { display: block; padding: 12px 3px; font-size: 11px; }
+      .nav-links .nav-contact { display: inline-block; margin-top: 8px; padding: 10px 12px; }
+      .hero { min-height: auto; padding: 128px 0 75px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 38px; }
+      .hero h1 { font-size: clamp(3.3rem, 13vw, 5.5rem); }
+      .hero-orbit { width: 390px; height: 390px; top: 33%; right: -230px; }
+      .tech-panel { max-width: 460px; }
+      .scroll-note { display: none; }
+      main section.content-section { padding: 76px 0; }
+      .section-head { align-items: start; flex-direction: column; gap: 13px; margin-bottom: 30px; }
+      .about-layout, .skills-layout { grid-template-columns: 1fr; gap: 34px; }
+      .profile-frame { max-width: 330px; margin-inline: auto; }
+      .fact-strip { grid-template-columns: repeat(3,1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card, .project-card:last-child { grid-column: auto; min-height: auto; }
+      .exposure-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .gallery-grid .gallery-item, .gallery-grid .gallery-item:first-child { height: 190px; grid-column: auto; }
+      .footer-inner { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 420px) {
+      .brand { font-size: 13px; }
+      .brand-mark { width: 34px; height: 34px; }
+      .hero h1 { font-size: 3.15rem; }
+      .hero-meta { gap: 12px; }
+      .fact-strip { gap: 6px; }
+      .fact { padding: 10px 8px; }
+      .fact b { font-size: 15px; }
+      .fact span { font-size: 8px; }
+      .gallery-grid { gap: 8px; }
+      .gallery-grid .gallery-item, .gallery-grid .gallery-item:first-child { height: 145px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects & Research</a></li>
-            <li><a href="#exposures">Exposures</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-        </ul>
+  <header class="site-header">
+    <nav class="container nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Richard Raj home">
+        <span class="brand-mark">RR</span>
+        <span>RICHARD RAJ<small>ENGINEERING / PORTFOLIO</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">MENU ☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">Profile</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#exposures">Experience</a></li>
+        <li><a href="#skills">Toolkit</a></li>
+        <li><a href="#gallery">Field notes</a></li>
+        <li><a class="nav-contact" href="#contact">Contact ↗</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- 1. ABOUT -->
-    <section id="about">
-        <img src="richard pfp.jpg" alt="Richard Raj" class="profile-pic">
-        <div class="about-text">
-            <h1>Richard Raj A/L Subramaniam</h1>
-            <p class="degree">Bachelor of Civil Engineering with Honours | UTHM</p>
-            <p><strong>Expected Graduation:</strong> 2028 | <strong>CGPA:</strong> 3.35</p>
-            <br>
-            <p>Dynamic Civil Engineering undergraduate at UTHM with a strong foundation in computational structural modeling, data-driven site analysis, and geomatics. Passionate about the intersection of physical infrastructure and advanced digital technologies, I am applying to the Winter University programme to bridge my engineering background with advanced computational fields—specifically systems development, neural networks, and computer science (Turing track). My goal is to leverage these interdisciplinary tech skills to develop smarter, tech-integrated engineering solutions and collaborate in a multicultural academic environment.</p>
-            
-            <div class="contact-info">
-                <p>📧 <strong>Email:</strong> AF240047@student.uthm.edu.my</p>
-                <p>📞 <strong>Phone:</strong> 011-2379 3060</p>
-                <p>🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/richard-raj-7b7389444" target="_blank">View Profile</a></p>
-                <p>📷 <strong>Instagram:</strong> @chard_2407</p>
-            </div>
+  <section class="hero" id="home">
+    <div class="hero-grid"></div><div class="hero-orbit"></div>
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow">Civil engineering × digital innovation</p>
+        <h1>Building ideas.<span>Engineering tomorrow.</span></h1>
+        <p class="hero-lead">I'm <strong>Richard Raj A/L Subramaniam</strong>, a Civil Engineering undergraduate at UTHM interested in the space where physical infrastructure meets <strong>AI, data, and smart technology.</strong></p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span>↘</span></a>
+          <a class="button button-ghost" href="#contact">Get in touch <span>↗</span></a>
         </div>
+        <div class="hero-meta">
+          <span>UTHM · Malaysia</span><span>Civil Engineering</span><span>Curious by design</span>
+        </div>
+      </div>
+      <aside class="tech-panel" aria-label="Engineering identity visual">
+        <div class="panel-top"><span><i class="live-dot"></i>Engineer profile / 01</span><span>RR—UTHM</span></div>
+        <div class="blueprint">
+          <svg viewBox="0 0 340 260" role="img" aria-label="Abstract digital structural frame illustration">
+            <defs>
+              <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#55e6e0"/><stop offset="1" stop-color="#4e8dff"/></linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#beam)" stroke-width="2">
+              <path d="M66 207 L66 104 L168 48 L270 104 L270 207 Z"/>
+              <path d="M66 104 L168 160 L270 104 M168 48 L168 160 L168 230 M66 207 L168 160 L270 207"/>
+              <path d="M66 104 L168 104 L270 104 M66 155 L270 155 M116 76 L116 181 M219 76 L219 181" opacity=".55"/>
+              <path d="M46 220 H290 M52 226 V214 M284 226 V214" stroke="#ff914d" stroke-width="1.4"/>
+              <path d="M48 94 L168 28 L288 94" stroke-dasharray="4 5" opacity=".7"/>
+            </g>
+            <g fill="#55e6e0">
+              <circle cx="66" cy="104" r="4"/><circle cx="168" cy="48" r="4"/><circle cx="270" cy="104" r="4"/>
+              <circle cx="66" cy="207" r="4"/><circle cx="168" cy="160" r="4"/><circle cx="270" cy="207" r="4"/>
+            </g>
+            <g fill="#9cb3c9" font-family="monospace" font-size="8">
+              <text x="16" y="35">STRUCTURE_01</text><text x="223" y="245">MODEL / 3D</text>
+              <text x="14" y="245">FIG. A</text>
+            </g>
+          </svg>
+        </div>
+        <div class="panel-data">
+          <div class="data-cell"><b>01 — 03</b><span>Featured field projects</span></div>
+          <div class="data-cell"><b>ENG + AI</b><span>Areas of curiosity</span></div>
+          <div class="data-cell"><b>UTHM</b><span>University</span></div>
+          <div class="data-cell"><b>2028</b><span>Expected graduation</span></div>
+        </div>
+      </aside>
+    </div>
+    <div class="scroll-note">Scroll to explore</div>
+  </section>
+
+  <main>
+    <section class="content-section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="section-kicker">01 / The person behind the plans</p><h2>Profile & direction</h2></div>
+          <span class="section-number">01 — 05</span>
+        </div>
+        <div class="about-layout">
+          <div class="profile-frame">
+            <img src="richard pfp.jpg" alt="Portrait of Richard Raj A/L Subramaniam" class="profile-pic">
+            <div class="profile-caption"><span>Richard Raj A/L Subramaniam</span><span>UTHM · MY</span></div>
+          </div>
+          <div class="about-copy">
+            <h3>Grounded in engineering. Looking toward what’s next.</h3>
+            <p class="degree-line">Bachelor of Civil Engineering with Honours · Universiti Tun Hussein Onn Malaysia (UTHM)</p>
+            <p>I am a Civil Engineering undergraduate developing a foundation in structural modelling, site analysis, and geomatics. I am especially interested in how digital tools can help engineers understand complex systems, make better-informed decisions, and design smarter infrastructure.</p>
+            <p>Through field camps, technical coursework, multimedia projects, and collaborative activities, I have been building both practical and communication skills. I hope to expand this perspective through international learning and explore how AI, data, and computational thinking can complement my engineering background.</p>
+            <div class="fact-strip">
+              <div class="fact"><b>3.35</b><span>CGPA</span></div>
+              <div class="fact"><b>2028</b><span>Expected graduation</span></div>
+              <div class="fact"><b>Year 3</b><span>Study level</span></div>
+            </div>
+            <div class="contact-grid" id="contact">
+              <div class="contact-item"><span>Email</span><a href="mailto:AF240047@student.uthm.edu.my">AF240047@student.uthm.edu.my</a></div>
+              <div class="contact-item"><span>Phone</span><a href="tel:+601123793060">+60 11-2379 3060</a></div>
+              <div class="contact-item"><span>LinkedIn</span><a href="https://www.linkedin.com/in/richard-raj-7b7389444" target="_blank" rel="noopener noreferrer">View professional profile ↗</a></div>
+              <div class="contact-item"><span>Instagram</span><a href="https://www.instagram.com/chard_2407/" target="_blank" rel="noopener noreferrer">@chard_2407 ↗</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 2. PROJECTS & RESEARCH -->
-    <section id="projects">
-        <h2>Projects & Research</h2>
-        
-        <div class="project-card">
+    <section class="content-section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="section-kicker">02 / Applied learning</p><h2>Projects & fieldwork</h2></div>
+          <p>From digital structural models to outdoor surveying and geological observation, each experience adds another layer to my engineering perspective.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card" data-index="01">
+            <div class="project-icon">⌁</div><p class="project-type">Structural modelling</p>
             <h3>Structural Load Analysis & 3D Tower Modeling</h3>
-            <p><strong>Summary:</strong> Engineered a comprehensive 3D tower model and executed complex structural load analyses utilizing STAAD.Pro to validate structural integrity and safety parameters.</p>
-            <p><strong>My Contribution:</strong> Systematically resolved intricate input configuration errors to optimize model accuracy and synthesized post-processing force diagrams.</p>
+            <p><strong>Overview:</strong> Developed a 3D tower model and carried out structural load analysis using STAAD.Pro to assess structural behaviour and safety parameters.</p>
+            <p><strong>Contribution:</strong> Troubleshot model input configuration issues and reviewed post-processing force diagrams.</p>
+            <div class="project-footer"><span class="mini-tag">STAAD.Pro</span><span class="mini-tag">3D model</span><span class="mini-tag">Load analysis</span></div>
+          </article>
+          <article class="project-card" data-index="02">
+            <div class="project-icon">⌖</div><p class="project-type">Geotechnical fieldwork</p>
+            <h3>Geological Field Investigation · Mersing</h3>
+            <p><strong>Overview:</strong> Took part in a three-day, two-night geological field expedition involving on-site testing, rock and soil sampling, and structural mapping.</p>
+            <p><strong>Contribution:</strong> Helped interpret field observations and sample characteristics to understand geological conditions and site stability.</p>
+            <div class="project-footer"><span class="mini-tag">Field investigation</span><span class="mini-tag">Rock & soil</span><span class="mini-tag">Mersing, Johor</span></div>
+          </article>
+          <article class="project-card" data-index="03">
+            <div class="project-icon">⌗</div><p class="project-type">Geomatics & mapping</p>
+            <h3>Topographic Mapping & Geomatic Surveying · Asahan</h3>
+            <p><strong>Overview:</strong> Practised real-world geomatic and topographic surveying during a field camp using surveying equipment.</p>
+            <p><strong>Contribution:</strong> Participated in field data collection, processed mapping outputs in SDR Mapping & Design V6.5, and helped prepare presentation materials.</p>
+            <div class="project-footer"><span class="mini-tag">Surveying</span><span class="mini-tag">SDR Mapping</span><span class="mini-tag">Asahan, Melaka</span></div>
+          </article>
         </div>
-
-        <div class="project-card">
-            <h3>Geological Field Investigation & Site Characterization (Mersing, Johor)</h3>
-            <p><strong>Summary:</strong> Conducted an intensive 3-day, 2-night geological field expedition executing on-site testing, rock and soil sampling, and structural mapping.</p>
-            <p><strong>My Contribution:</strong> Analyzed empirical field data to characterize rock formations and soil mechanics, ultimately synthesizing findings to assess site stability and geotechnical viability.</p>
-        </div>
-
-        <div class="project-card">
-            <h3>Topographic Mapping & Geomatic Surveying (Asahan, Melaka)</h3>
-            <p><strong>Summary:</strong> Executed real-world geomatic and topographic surveying protocols during an intensive field camp using precision field equipment.</p>
-            <p><strong>My Contribution:</strong> Spearheaded field data collection, synthesized mapping outputs using SDR Mapping & Design V6.5, and directed the drafting of official presentation materials.</p>
-        </div>
+      </div>
     </section>
 
-    <!-- 3. EXPOSURES -->
-    <section id="exposures">
-        <h2>Exposures</h2>
+    <section class="content-section" id="exposures">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="section-kicker">03 / Beyond the classroom</p><h2>Experience & exposure</h2></div>
+          <span class="section-number">People · Purpose · Practice</span>
+        </div>
         <div class="exposure-grid">
-            <div class="exposure-item">
-                <h3>🌍 Global Mindset & Multilingual Adaptability</h3>
-                <p>Fluent in English, Chinese, Bahasa Malaysia, and Tamil, enabling seamless communication and collaboration in diverse, multicultural environments.</p>
-            </div>
-            <div class="exposure-item">
-                <h3>🌱 Sustainability Advocacy</h3>
-                <p>Designed compelling presentation materials and strategic messaging aligned with the 17 UN Sustainable Development Goals (SDGs) for an English for Professional Communication course.</p>
-            </div>
-            <div class="exposure-item">
-                <h3>🎬 Multimedia Production</h3>
-                <p>Directed scriptwriting and video editing for the "English for General Communication" course at UTHM, and serve as a freelance video editor utilizing DaVinci Resolve.</p>
-            </div>
-            <div class="exposure-item">
-                <h3>📦 Operational Resilience</h3>
-                <p>Navigated mentally and physically demanding logistical operations as a high-volume delivery driver for ShopeeExpress (SPX) and Lalamove, successfully balancing rigorous targets with demanding academic studies.</p>
-            </div>
+          <article class="exposure-item"><div class="exposure-icon">◎</div><div><h3>Multilingual collaboration</h3><p>Communicate across English, Chinese, Bahasa Malaysia, and Tamil, supporting collaboration in diverse and multicultural settings.</p></div></article>
+          <article class="exposure-item"><div class="exposure-icon">↗</div><div><h3>Sustainability communication</h3><p>Prepared presentation materials and messaging connected to the 17 United Nations Sustainable Development Goals for an English for Professional Communication course.</p></div></article>
+          <article class="exposure-item"><div class="exposure-icon">▶</div><div><h3>Multimedia production</h3><p>Worked on scriptwriting and video editing for an English for General Communication course at UTHM, and create video edits using DaVinci Resolve.</p></div></article>
+          <article class="exposure-item"><div class="exposure-icon">⌁</div><div><h3>Operational resilience</h3><p>Built practical time-management and problem-solving experience through delivery work with ShopeeExpress (SPX) and Lalamove while continuing university studies.</p></div></article>
         </div>
+      </div>
     </section>
 
-    <!-- 4. SKILLS -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Engineering & Mapping Software</h3>
-                <div class="skill-tags">
-                    <span class="tag">STAAD.Pro</span>
-                    <span class="tag">AutoCAD</span>
-                    <span class="tag">SDR Mapping & Design V6.5</span>
-                    <span class="tag">Jupyter Notebook</span>
-                    <span class="tag">Google Earth Pro</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Language Proficiency</h3>
-                <div class="skill-tags">
-                    <span class="tag">English (Fluent)</span>
-                    <span class="tag">Chinese (Fluent)</span>
-                    <span class="tag">Bahasa Malaysia (Fluent)</span>
-                    <span class="tag">Tamil (Native)</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Multimedia Software</h3>
-                <div class="skill-tags">
-                    <span class="tag">DaVinci Resolve</span>
-                </div>
-            </div>
+    <section class="content-section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="section-kicker">04 / Tools of the trade</p><h2>Technical toolkit</h2></div>
+          <p>A growing set of engineering, mapping, and creative tools to support technical work and communicate ideas clearly.</p>
         </div>
+        <div class="skills-layout">
+          <div class="skills-intro"><p class="section-kicker">Build / Analyze / Communicate</p><h3>Engineering meets digital thinking.</h3><p>I’m interested in continuing to develop my technical foundation while exploring how computation and emerging technology can support engineering practice.</p></div>
+          <div class="skill-groups">
+            <div class="skill-category"><h3>ENGINEERING & MAPPING SOFTWARE</h3><div class="skill-tags"><span class="tag">STAAD.Pro</span><span class="tag">AutoCAD</span><span class="tag">SDR Mapping & Design V6.5</span><span class="tag">Jupyter Notebook</span><span class="tag">Google Earth Pro</span></div></div>
+            <div class="skill-category"><h3>MULTIMEDIA</h3><div class="skill-tags"><span class="tag">DaVinci Resolve</span><span class="tag">Video editing</span><span class="tag">Scriptwriting</span></div></div>
+            <div class="skill-category"><h3>LANGUAGES</h3><div class="skill-tags"><span class="tag">English · Fluent</span><span class="tag">Chinese · Fluent</span><span class="tag">Bahasa Malaysia · Fluent</span><span class="tag">Tamil · Native</span></div></div>
+            <div class="skill-category"><h3>CORE STRENGTHS</h3><div class="skill-tags"><span class="tag">Field data collection</span><span class="tag">Technical communication</span><span class="tag">Team collaboration</span><span class="tag">Creative problem-solving</span></div></div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 5. GALLERY -->
-    <section id="gallery">
-        <h2>Gallery</h2>
-
-        <h3 class="gallery-category">Structural Load Analysis & Tower Modeling</h3>
-        <div class="gallery-grid">
-            <img src="tower.jpeg" alt="Tower Design Graphic" class="gallery-item">
-            <img src="Sa1.jpeg" alt="Tower Physical Model 1" class="gallery-item">
-            <img src="Sa2.jpeg" alt="Tower Physical Model 2" class="gallery-item">
+    <section class="content-section" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="section-kicker">05 / Evidence in the field</p><h2>Project gallery</h2></div>
+          <p>A visual record of modelling, surveying, and geological field experiences.</p>
         </div>
-
-        <h3 class="gallery-category">Geomatic Surveying (Asahan)</h3>
-        <div class="gallery-grid">
-            <img src="survey.jpeg" alt="Survey Team" class="gallery-item">
-            <img src="survey 1.jpeg" alt="Surveying Equipment" class="gallery-item">
-            <img src="survey 2.jpeg" alt="Surveying Equipment Fieldwork" class="gallery-item">
-            <img src="survey 3.jpeg" alt="Survey Data Review" class="gallery-item">
+        <div class="gallery-group">
+          <h3 class="gallery-title">Structural load analysis & tower modelling <span>01 / STRUCTURES</span></h3>
+          <div class="gallery-grid">
+            <img src="tower.jpeg" alt="Structural tower design graphic" class="gallery-item" loading="lazy">
+            <img src="Sa1.jpeg" alt="Physical tower model view one" class="gallery-item" loading="lazy">
+            <img src="Sa2.jpeg" alt="Physical tower model view two" class="gallery-item" loading="lazy">
+          </div>
         </div>
-
-        <h3 class="gallery-category">Geological Field Investigation (Mersing)</h3>
-        <div class="gallery-grid">
-            <img src="geology.jpeg" alt="Geology Material Testing" class="gallery-item">
-            <img src="geo 1.jpeg" alt="Geology Fieldwork 1" class="gallery-item">
-            <img src="geo 2.jpeg" alt="Geology Fieldwork 2" class="gallery-item">
-            <img src="geo 3.jpeg" alt="Geology Rock Formation" class="gallery-item">
-            <img src="geo 4.jpeg" alt="Geology Rock Hammer" class="gallery-item">
-            <img src="geo 5.jpeg" alt="Geology Soil Sample" class="gallery-item">
-            <img src="geo 6.jpeg" alt="Geology Rock Structure" class="gallery-item">
+        <div class="gallery-group">
+          <h3 class="gallery-title">Geomatic surveying · Asahan <span>02 / MAPPING</span></h3>
+          <div class="gallery-grid">
+            <img src="survey.jpeg" alt="Geomatics survey team" class="gallery-item" loading="lazy">
+            <img src="survey 1.jpeg" alt="Surveying equipment" class="gallery-item" loading="lazy">
+            <img src="survey 2.jpeg" alt="Surveying equipment in the field" class="gallery-item" loading="lazy">
+            <img src="survey 3.jpeg" alt="Survey data review" class="gallery-item" loading="lazy">
+          </div>
         </div>
+        <div class="gallery-group">
+          <h3 class="gallery-title">Geological field investigation · Mersing <span>03 / GEOLOGY</span></h3>
+          <div class="gallery-grid">
+            <img src="geology.jpeg" alt="Geological material testing" class="gallery-item" loading="lazy">
+            <img src="geo 1.jpeg" alt="Geological fieldwork view one" class="gallery-item" loading="lazy">
+            <img src="geo 2.jpeg" alt="Geological fieldwork view two" class="gallery-item" loading="lazy">
+            <img src="geo 3.jpeg" alt="Rock formation observed during fieldwork" class="gallery-item" loading="lazy">
+            <img src="geo 4.jpeg" alt="Geology rock hammer fieldwork" class="gallery-item" loading="lazy">
+            <img src="geo 5.jpeg" alt="Soil sample from field investigation" class="gallery-item" loading="lazy">
+            <img src="geo 6.jpeg" alt="Rock structure observed during fieldwork" class="gallery-item" loading="lazy">
+          </div>
+        </div>
+      </div>
     </section>
+  </main>
 
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p><strong>Richard Raj A/L Subramaniam</strong><br>Civil Engineering · UTHM · Malaysia</p>
+      <p>Designed around curiosity, built for what’s next.</p>
+      <a class="back-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? 'CLOSE ×' : 'MENU ☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = 'MENU ☰';
+      });
+    });
+  </script>
 </body>
 </html>
